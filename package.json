@@ -1,0 +1,10 @@
+{
+  "name": "teleformat-input",
+  "version": "0.1.0",
+  "description": "Text input field which uses Teleformat for fancy phone number decoration",
+  "main": "index.js",
+  "repository": "https://github.com/ChrisH91/teleformat-input",
+  "author": "Chris Howard <Chris.Howard@loopup.com>",
+  "license": "MIT",
+  "private": false
+}
