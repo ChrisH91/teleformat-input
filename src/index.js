@@ -1,8 +1,8 @@
 import teleformat from 'teleformat';
 
-export const inputHandler = (value, prevValue, selectionStart) => {
+export const inputHandler = (value, prevValue, selectionStart, countryCode) => {
   const lengthDifference = value.length - prevValue.length;
-  const decorated = teleformat.decorate(value);
+  const decorated = teleformat.decorate(value, countryCode);
 
   if (decorated.international === '') {
     return { value, selectionStart };
@@ -11,18 +11,20 @@ export const inputHandler = (value, prevValue, selectionStart) => {
   const afterCharacter = value[selectionStart - 1];
   const isAfterLastCharacter = selectionStart === value.length;
 
+  const nextValue = value.charAt(0) === '+' ? decorated.international : decorated.local;
+
   let nextSelectionStart = decorated.international.length;
 
   if (lengthDifference >= 0 && !isAfterLastCharacter) {
-    for (let i = selectionStart - 1; i < decorated.international.length; i += 1) {
-      if (decorated.international[i] === afterCharacter) {
+    for (let i = selectionStart - 1; i < nextValue.length; i += 1) {
+      if (nextValue[i] === afterCharacter) {
         nextSelectionStart = i + 1;
         break;
       }
     }
   } else if (lengthDifference < 0) {
     for (let i = selectionStart; i >= 0; i -= 1) {
-      if (decorated.international[i] === afterCharacter) {
+      if (nextValue[i] === afterCharacter) {
         nextSelectionStart = i + 1;
         break;
       }
@@ -30,7 +32,8 @@ export const inputHandler = (value, prevValue, selectionStart) => {
   }
 
   return {
-    value: decorated.international,
+    value: nextValue,
+    number: decorated,
     selectionStart: nextSelectionStart,
   };
 };
