@@ -1,6 +1,6 @@
 {
   "name": "teleformat-input",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Text input field which uses Teleformat for fancy phone number decoration",
   "main": "dist/teleformat-input.js",
   "repository": "https://github.com/ChrisH91/teleformat-input",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "teleformat": "0.4.0"
+    "teleformat": "0.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
