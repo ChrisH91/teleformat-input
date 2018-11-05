@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "teleformat": "^0.3.0"
+    "teleformat": "0.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -27,7 +27,7 @@
   "scripts": {
     "build": "webpack --watch --mode=development",
     "build-prod": "webpack --mode=production",
-    "lint": "eslint '**/*.js'",
+    "lint": "eslint \"./**/*.js\" --ignore-path .gitignore",
     "test": "jest",
     "test-ci": "jest && codecov"
   }
