@@ -4878,10 +4878,10 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
 
-teleformat@0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/teleformat/-/teleformat-0.4.1.tgz#c12d6decdb7b1b8381b59c3927153b761595cd03"
-  integrity sha512-z3GMHbXqjHXgbOcF7DQZ2DeTB7Qwe+P0+seIXfW9bj2n3yQjDxFZ1DL3R1HBHLDEkB6COAI3PN/9+ai00lfrmw==
+teleformat@^0.4.2:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/teleformat/-/teleformat-0.4.3.tgz#d35113525001cd07c1b74f861d042fecdd0723f3"
+  integrity sha512-V7ehT5LZTXG9YW/ilLtcLlW1Th/YfrDFJdZHTfcm/SwI+CDHxHqUUPTa21mFBrmwwurZk/pZ8DtEx0yCsMnjcA==
 
 test-exclude@^4.2.1:
   version "4.2.3"
