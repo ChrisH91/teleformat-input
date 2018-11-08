@@ -1,17 +1,23 @@
 import teleformat from 'teleformat';
 
 export const inputHandler = (value, prevValue, selectionStart, countryCode) => {
-  const lengthDifference = value.length - prevValue.length;
-  const decorated = teleformat.decorate(value, countryCode);
+  const normalizedValue = value.trimLeft();
+
+  const lengthDifference = normalizedValue.length - prevValue.length;
+  const decorated = teleformat.decorate(normalizedValue, countryCode);
 
   if (decorated.international === '') {
-    return { value, selectionStart };
+    return {
+      normalizedValue,
+      selectionStart,
+      number: [],
+    };
   }
 
-  const afterCharacter = value[selectionStart - 1];
-  const isAfterLastCharacter = selectionStart === value.length;
+  const afterCharacter = normalizedValue[selectionStart - 1];
+  const isAfterLastCharacter = selectionStart === normalizedValue.length;
 
-  const nextValue = value.charAt(0) === '+' ? decorated.international : decorated.local;
+  const nextValue = normalizedValue.charAt(0) === '+' ? decorated.international : decorated.local;
 
   let nextSelectionStart = decorated.international.length;
 
