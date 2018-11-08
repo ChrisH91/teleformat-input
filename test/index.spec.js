@@ -3,6 +3,10 @@ import MockElement from './mock-element';
 
 describe('teleformat-input', () => {
   describe('inputHandler', () => {
+    test('works for single +', () => {
+      expect(inputHandler('+', '', 1).value).toBe('+');
+    });
+
     test('doesnt decorate for unknown countries', () => {
       expect(inputHandler('+9991', '', 0).value).toBe('+9991');
     });
