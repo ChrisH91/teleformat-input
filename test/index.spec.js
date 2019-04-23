@@ -16,6 +16,12 @@ describe('teleformat-input', () => {
       expect(inputHandler('+1 (555)1', '', 0).value).toBe('+1 (555) 1');
     });
 
+    describe('extensions', () => {
+      test('are decorated', () => {
+        expect(inputHandler('+15551112222x123', '', 0).value).toBe('+1 (555) 111-2222 ext. 123');
+      });
+    });
+
     describe('caret position', () => {
       test('add single end of string', () => {
         expect(inputHandler('+1 (555) 1', '+1 (555) ', 10).selectionStart).toBe(10);
